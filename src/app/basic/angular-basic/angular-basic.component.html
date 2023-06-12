@@ -1,0 +1,73 @@
+<p>{{title}}</p>
+
+<input type="checkbox" value="check for favourite color" [(ngModel)]="show"/> Show favourite colors
+<pre *ngIf="show">
+    My Fovourite colors : 
+    <ol>
+        <li *ngFor="let c of colors"  [ngStyle]="{color:c}">{{c}}</li>
+    </ol>
+</pre>
+
+
+<pre>
+Select Day: <input  type="number" [(ngModel)]="day" min="{{min}}" [max]="max"/> : {{day}}
+</pre>
+
+<div [ngSwitch]="day">
+    <div *ngSwitchCase="1">SUNDAY</div>
+    <div *ngSwitchCase="2">MONDAY</div>
+    <div *ngSwitchCase="3">TUESDAY</div>
+    <div *ngSwitchCase="4">WEDNESDAY</div>
+    <div *ngSwitchCase="5">THRUSDAY</div>
+    <div *ngSwitchCase="6">FRIDAY</div>
+    <div *ngSwitchCase="7">SATURDAY</div>
+    <div *ngSwitchDefault>I DON't KNOW WHAT DAY IS TODAY..</div>
+
+</div>
+
+<hr/>
+
+<pre>
+    <input type="button" value="show hide employee details" (click)="showHide()"/>
+</pre>
+
+<div *ngIf="hide">
+    <pre>
+        
+        Employee Id: {{employee.id}}
+        Employee Name : {{employee.name | titlecase}}
+        Employee Name : {{employee.name | uppercase}}
+        Employee Name : {{employee.name | lowercase}}
+        Employee Salary : {{employee.salary |number}}
+        Employee Salary : {{employee.salary | number: '8.4-5'}}
+        Employee Salary : {{employee.salary | currency}}
+        Employee Salary : {{employee.salary | currency: 'INR'}}
+        Employee Variable : {{employee.salary | percent}}
+        Employee doj : {{employee.doj | date}}
+        Employee doj : {{employee.doj | date: 'shortDate'}}
+        Employee doj : {{employee.doj | date: 'mediumDate'}}
+        Employee doj : {{employee.doj | date: 'fullDate'}}
+        Employee doj : {{employee.doj | date: 'longDate'}}
+        Employee doj : {{employee.doj | date: 'shortDate'}}
+        Employee doj : {{employee.doj | date: 'dd-MM-yyyy'}}
+
+        Employee pan: {{employee.pan}}
+        Employee pan: {{employee.pan | uppercase | slice:0:2}}XXXXX{{employee.pan | uppercase | slice:8:10}}
+        Employee mobile: {{employee.mobile}}
+        Employee mobile: XXXXXXXX{{employee.mobile | slice:8:10}}
+        Employee IsMarried : {{employee.isMarried}}
+        Employee Gender: {{employee.gender}}
+        Employee City: {{employee.city}}
+        Employee object: {{employee | json}}
+    </pre>
+    <ol>
+        <li *ngFor="let e of employee | keyvalue">{{e.key}} : {{e.value}}</li>
+    </ol>
+</div>
+
+<hr />
+
+
+
+
+

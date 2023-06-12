@@ -3,16 +3,29 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CoreModule } from './core/core.module';
+import { BasicModule } from './basic/basic.module';
+
+
 
 @NgModule({
-  declarations: [
-    AppComponent
+  declarations: [ // components, directives, pipes
+    AppComponent,
   ],
-  imports: [
+  imports: [ // modules, other modules
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BasicModule,
+    CoreModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    // services
+  ],
+  bootstrap: [AppComponent] // components
 })
-export class AppModule { }
+export class AppModule {
+
+  constructor() {
+    console.log('App module...');
+  }
+ }
