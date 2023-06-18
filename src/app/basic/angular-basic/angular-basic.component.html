@@ -1,5 +1,9 @@
 <p>{{title}}</p>
 
+<div align="right">
+   <font color="red" > Time is {{time | async}}</font>
+</div>
+
 <input type="checkbox" value="check for favourite color" [(ngModel)]="show"/> Show favourite colors
 <pre *ngIf="show">
     My Fovourite colors : 
@@ -31,8 +35,8 @@ Select Day: <input  type="number" [(ngModel)]="day" min="{{min}}" [max]="max"/> 
     <input type="button" value="show hide employee details" (click)="showHide()"/>
 </pre>
 
-<div *ngIf="hide">
-    <pre>
+<div *ngIf="hide; else loading">
+    <pre fgColor="red" bgColor="yellow">
         
         Employee Id: {{employee.id}}
         Employee Name : {{employee.name | titlecase}}
@@ -56,7 +60,7 @@ Select Day: <input  type="number" [(ngModel)]="day" min="{{min}}" [max]="max"/> 
         Employee mobile: {{employee.mobile}}
         Employee mobile: XXXXXXXX{{employee.mobile | slice:8:10}}
         Employee IsMarried : {{employee.isMarried}}
-        Employee Gender: {{employee.gender}}
+        Employee Gender: {{employee.gender | gender}}
         Employee City: {{employee.city}}
         Employee object: {{employee | json}}
     </pre>
@@ -68,6 +72,34 @@ Select Day: <input  type="number" [(ngModel)]="day" min="{{min}}" [max]="max"/> 
 <hr />
 
 
+<button [disabled]="true">Click Me</button>
 
+<div ngNonBindable>{{html}}</div>
+
+<div>{{item}}</div>
+
+<div>
+
+    <ng-template #loading let-value="message">
+       <h2> this is NG Template </h2>
+       <h3>{{value}}</h3>
+    </ng-template>
+
+    <ng-container *ngTemplateOutlet="loading; context: {message: 'Practice makes man perfect'}">
+        <h3>this is ng container</h3>
+    </ng-container>
+
+    <ng-container *ngTemplateOutlet="loading; context: {message: 'Practice makes man perfect 2'}">
+        <h3>this is ng container</h3>
+    </ng-container>
+
+    <ng-container *ngTemplateOutlet="loading; context: {message: 'Practice makes man perfect 3'}">
+        <h3>this is ng container</h3>
+    </ng-container>
+
+    <ng-container [ngTemplateOutlet]="loading" [ngTemplateOutletContext]="{ message : 'sudhir kumar'}">
+        <h3>this is ng container</h3>
+    </ng-container>
+</div>
 
 

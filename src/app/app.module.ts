@@ -5,18 +5,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { BasicModule } from './basic/basic.module';
-
+import { SharedModule } from './shared/shared.module';
+import { CasestudyModule } from './casestudy/casestudy.module';
+import { HttpClientModule } from '@angular/common/http';
+import { CounterComponent } from './nasic/counter/counter.component';
 
 
 @NgModule({
   declarations: [ // components, directives, pipes
-    AppComponent,
+    AppComponent, CounterComponent,
   ],
   imports: [ // modules, other modules
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BasicModule,
-    CoreModule
+    CoreModule,
+    SharedModule,
+
   ],
   providers: [
     // services

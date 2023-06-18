@@ -1,1 +1,31 @@
-<p>catalog works!</p>
+<div class="container">
+
+    <button (click)="add()">Add</button>
+
+    <table  class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>likes</th>
+                <th>dislikes</th>
+                <th> like it</th>
+                <th> dislike it</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of technologies">
+                <td>{{t.id}}</td>
+                <td>{{t.name}}</td>
+                <td>{{t.likes}}</td>
+                <td>{{t.dislikes}}</td>
+                <td><button (click)="increamentLikes(t)" class="btn btn-success" value="like it" type="button">Like it</button></td>
+                <td><button (click)="increamentDislikes(t)" class="btn btn-warning">Dislike it</button></td>
+                
+                
+            </tr>
+        </tbody>
+    </table>
+       
+
+</div>

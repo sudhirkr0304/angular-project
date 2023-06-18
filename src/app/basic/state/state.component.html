@@ -1,0 +1,14 @@
+<div>
+    <font color="blue"> State Component</font>
+    
+
+
+    <div>{{countryName}}</div>
+
+    <div>
+        State name : 
+        <input  [(ngModel)]="name"  type="text" (keyup)="sendStateName()"/>
+
+        <app-city></app-city>
+    </div>
+</div>

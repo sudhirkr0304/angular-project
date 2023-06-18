@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable, Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-angular-basic',
@@ -23,9 +24,16 @@ export class AngularBasicComponent {
       pan : 'fkupk5260h',
       mobile: '1234567655',
       isMarried : false,
-      gender: 'Male',
+      gender: 3,
       city : 'Bengaluru'
     };
+
+    time = new Observable((s:Subscriber<string>) => {
+
+      setInterval(() => {
+        s.next(new Date().toString())
+      },1000);
+    })
 
 
     showHide() {
@@ -36,6 +44,10 @@ export class AngularBasicComponent {
         this.hide = false;
       }
     }
+
+    html = '<h1>sudhir kumar</h1>'
+
+    item = null;
 
 
 }

@@ -4,6 +4,8 @@ import { HomeComponent } from './basic/home/home.component';
 import { AngularBasicComponent } from './basic/angular-basic/angular-basic.component';
 import { CatalogComponent } from './basic/catalog/catalog.component';
 import { PagenotfoundComponent } from './core/pagenotfound/pagenotfound.component';
+import { NestedComponent } from './basic/nested/nested.component';
+import { UserstableComponent } from './casestudy/userstable/userstable.component';
 
 const routes: Routes = [
   {
@@ -11,6 +13,10 @@ const routes: Routes = [
     redirectTo : 'home',
     pathMatch: 'full'
 
+  },
+  {
+    path:'nested',
+    component: NestedComponent
   },
   {
     path : 'basic' ,
@@ -24,10 +30,17 @@ const routes: Routes = [
     path: 'catalog',
     component: CatalogComponent
   },
+
+  {
+    path:"case-study",
+    loadChildren: () =>  import("./casestudy/casestudy.module").then(m => m.CasestudyModule)
+  },
   {
     path: '**',
     component: PagenotfoundComponent
   }
+  
+  
   
 ];
 

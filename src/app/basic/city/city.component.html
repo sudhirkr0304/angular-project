@@ -1,0 +1,19 @@
+<div>
+    <font color="orange">City component</font>
+    <font color="brown">
+        <ng-content></ng-content>
+    </font>
+    
+    <hr />
+
+    <h1 #heading>Hello City Element</h1>
+
+    <h2 [fgColor]="'blue'" #fgcolor> Hi All</h2>
+
+    <app-counter #counter></app-counter>
+    <br/>
+
+    <button ngClass="btn btn-info btn-sm" (click)="increase()"> Increase </button>
+    
+    <button ngClass="btn btn-success btn-sm" (click)="decrease()"> Decrease </button>
+</div>

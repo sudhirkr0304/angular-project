@@ -1,0 +1,12 @@
+<div ngClass="country">
+
+</div>
+
+<div>
+    <font color="green"> Country component</font>
+
+    <div>{{name}}</div>
+    <input  [(ngModel)]="name"/>
+    <p>State Name : {{stateName}}</p>
+    <app-state [countryName]="name" (stateChanged)="stateName=$event"></app-state>
+</div>

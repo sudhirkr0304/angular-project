@@ -1,0 +1,47 @@
+<div class="container">
+
+    <table class="table" *ngIf="users">
+
+        <thead>
+
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>UserName</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Website</th>
+                <th>View Posts</th>
+                <th>View Todos</th>
+                <th>View Albums</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let user of users; let index = index; let even=even; let odd = odd; let first = first; let last = last;" [ngClass]="{'text-primary' : even}"
+            
+            [ngClass]="{
+
+                'text-warning' : last,
+                'bg-success' : even,
+                'bg-primary' : odd
+            }"
+            >
+                <td>{{user.id}} -> {{index}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.website}}</td>
+                <td><button class="btn btn-success btn-sm">View Posts</button></td>
+                <td><button class="btn btn-info btn-sm" >View Todos</button></td>
+                <td><button class="btn btn-primary btn-sm">View Albums</button></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
